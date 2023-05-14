@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h1 class="my-4">Users List</h1>
+      <div class="list-group mb-4">
+        <a
+          *ngFor="let user of users"
+          routerLink="/users/{{ user.id }}"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+        >
+          <h5 class="mb-1">{{ user.name }}</h5>
+          <small>{{ user.phone }}</small>
+        </a>
+      </div>
+    </div>
+    <div class="col-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

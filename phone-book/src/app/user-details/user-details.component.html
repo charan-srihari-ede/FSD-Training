@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h1 class="my-4">Users Details</h1>
+      <div
+        class="row justify-content-center my-5"
+        *ngIf="isLoading; else userData"
+      >
+        <div class="col-auto">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+      <ng-template #userData>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th scope="row">Full Name</th>
+              <td>{{ userDetails?.name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Username</th>
+              <td>{{ userDetails?.username }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Phone Number</th>
+              <td>{{ userDetails?.phone }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Email</th>
+              <td>{{ userDetails?.email }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Website</th>
+              <td>{{ userDetails?.website }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Address</th>
+              <td>{{ userDetails?.address?.city }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-auto">
+            <button type="button" class="btn btn-primary">Edit</button>
+          </div>
+          <div class="col-auto">
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteUserDetails()"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

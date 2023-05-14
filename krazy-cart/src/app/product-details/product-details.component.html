@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Product-details</h1>
+
+      <div
+        *ngIf="productDetails; else noDetails"
+        class="alert alert-success"
+        role="alert"
+      >
+        Hey!! We found the prodcut. And it's a {{ productDetails.name }}
+      </div>
+
+      <ng-template #noDetails>
+        <div class="alert alert-danger" role="alert">
+          Sorry! The product you are looking is not a valid one.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

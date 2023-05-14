@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="my-2">Albums</h1>
+      <div class="mb-3 row">
+        <label for="selectAlbum" class="col-sm-2 col-form-label">
+          Choose Album:
+        </label>
+        <div class="col-sm-4">
+          <select
+            name="selectAlbum"
+            id="selectAlbum"
+            class="form-control"
+            (change)="onAlbumChanged($event)"
+          >
+            <option value="">Choose one</option>
+            <option *ngFor="let album of albumList" value="{{ album.id }}">
+              {{ album.title }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="col" *ngFor="let photo of photoList">
+          <div class="card">
+            <img
+              [src]="photo.thumbnailUrl"
+              class="card-img-top"
+              [alt]="photo.title"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ photo.title }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
